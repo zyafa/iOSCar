@@ -42,7 +42,7 @@
 {
     self.sessionId = aNotification.userInfo[@"sessionUUID"];
     NSMutableDictionary *mutableUserInfo = [aNotification.userInfo mutableCopy];
-    mutableUserInfo[@"forceCarDisplay"] = @( NO );
+    mutableUserInfo[@"forceCarDisplay"] = @( YES );
     self.lastSession = [mutableUserInfo copy];
 }
 
