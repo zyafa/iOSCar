@@ -8,11 +8,38 @@
 
 #import "DSAppDelegate.h"
 
+@interface DSAppDelegate ()
+
+@property (nonatomic, strong) NSDictionary *lastSession;
+
+@end
+
 @implementation DSAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(notification:)
+                                                            name:@"com.apple.iphonesimulator.startSession"
+                                                          object:nil];
+}
+- (IBAction)startSimulator:(id)sender
+{
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.iphonesimulator.startSession"
+                                                                   object:nil userInfo:self.lastSession];
+}
+- (IBAction)endSimulator:(id)sender
+{
+    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.iphonesimulator.endSession"
+                                                                   object:nil
+                                                                 userInfo:nil];
+}
+
+- (void)notification:(NSNotification *)aNotification
+{
+    NSMutableDictionary *mutableUserInfo = [aNotification.userInfo mutableCopy];
+    mutableUserInfo[@"forceCarDisplay"] = @( NO );
+    self.lastSession = [mutableUserInfo copy];
 }
 
 @end

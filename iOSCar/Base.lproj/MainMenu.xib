@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5037" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5037"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -669,11 +669,80 @@
         <window title="iOSCar" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="315" height="174"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="315" height="174"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-gF-Wew">
+                        <rect key="frame" x="16" y="22" width="173" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Enable iOS in the Car" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5ha-gf-bsE">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="startSimulator:" target="Voe-Tx-rLC" id="JAE-eC-TdT"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8iF-8i-hie">
+                        <rect key="frame" x="16" y="76" width="97" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Quit App" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="21o-1J-yC1">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="endSimulator:" target="Voe-Tx-rLC" id="AKb-II-1ae"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qeB-DA-VUJ">
+                        <rect key="frame" x="20" y="137" width="277" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1. Build &amp; Run any iOS app in Simulator" id="tHU-Ry-SGT">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ebj-hj-9tC">
+                        <rect key="frame" x="20" y="112" width="277" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2. Quit the application using button" id="oCh-Gf-q1a">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O7c-x3-BQe">
+                        <rect key="frame" x="20" y="58" width="277" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="3. Enable iOS in the Car mode using button" id="tS3-fr-WSj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="8A8-gF-Wew" secondAttribute="bottom" constant="29" id="0OG-yr-3jS"/>
+                    <constraint firstItem="qeB-DA-VUJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="1mb-PG-q4a"/>
+                    <constraint firstAttribute="trailing" secondItem="qeB-DA-VUJ" secondAttribute="trailing" constant="20" id="2U4-O6-avz"/>
+                    <constraint firstItem="qeB-DA-VUJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="MwW-6P-5i0"/>
+                    <constraint firstItem="O7c-x3-BQe" firstAttribute="top" secondItem="8iF-8i-hie" secondAttribute="bottom" constant="8" id="Vqz-WP-dt6"/>
+                    <constraint firstItem="8A8-gF-Wew" firstAttribute="top" secondItem="O7c-x3-BQe" secondAttribute="bottom" constant="8" id="VrF-z6-qep"/>
+                    <constraint firstItem="O7c-x3-BQe" firstAttribute="leading" secondItem="qeB-DA-VUJ" secondAttribute="leading" id="WXr-k0-sMy"/>
+                    <constraint firstItem="8iF-8i-hie" firstAttribute="top" secondItem="Ebj-hj-9tC" secondAttribute="bottom" constant="8" id="WlO-6d-Qkb"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8iF-8i-hie" secondAttribute="trailing" constant="20" symbolic="YES" id="ZzQ-fn-9Fx"/>
+                    <constraint firstItem="O7c-x3-BQe" firstAttribute="leading" secondItem="Ebj-hj-9tC" secondAttribute="leading" id="d9F-ht-HQ5"/>
+                    <constraint firstItem="Ebj-hj-9tC" firstAttribute="top" secondItem="qeB-DA-VUJ" secondAttribute="bottom" constant="8" id="eYG-Ak-Edw"/>
+                    <constraint firstItem="O7c-x3-BQe" firstAttribute="leading" secondItem="8A8-gF-Wew" secondAttribute="leading" id="ebH-tV-5Xp"/>
+                    <constraint firstAttribute="trailing" secondItem="Ebj-hj-9tC" secondAttribute="trailing" constant="20" id="gws-7Z-Uir"/>
+                    <constraint firstItem="O7c-x3-BQe" firstAttribute="leading" secondItem="8iF-8i-hie" secondAttribute="leading" id="jDr-aP-J26"/>
+                    <constraint firstAttribute="trailing" secondItem="O7c-x3-BQe" secondAttribute="trailing" constant="20" id="nTw-77-vSU"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8A8-gF-Wew" secondAttribute="trailing" constant="20" symbolic="YES" id="uVX-7x-azN"/>
+                </constraints>
             </view>
         </window>
     </objects>
