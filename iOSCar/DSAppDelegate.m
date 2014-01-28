@@ -11,6 +11,7 @@
 @interface DSAppDelegate ()
 
 @property (nonatomic, strong) NSDictionary *lastSession;
+@property (nonatomic, strong) NSString *sessionId;
 
 @end
 
@@ -32,11 +33,14 @@
 {
     [[NSDistributedNotificationCenter defaultCenter] postNotificationName:@"com.apple.iphonesimulator.endSession"
                                                                    object:nil
-                                                                 userInfo:nil];
+                                                                 userInfo:@{ @"error" : @( 0 ),
+                                                                             @"errorString" : @"lol",
+                                                                             @"sessionUUID" : self.sessionId }];
 }
 
 - (void)notification:(NSNotification *)aNotification
 {
+    self.sessionId = aNotification.userInfo[@"sessionUUID"];
     NSMutableDictionary *mutableUserInfo = [aNotification.userInfo mutableCopy];
     mutableUserInfo[@"forceCarDisplay"] = @( NO );
     self.lastSession = [mutableUserInfo copy];
